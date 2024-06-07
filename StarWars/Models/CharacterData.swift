@@ -17,7 +17,6 @@ struct CharacterData: Decodable, Hashable {
     let mass: String
     let hairColor: String
     let birthYear: String
-    let weight: Int
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -25,6 +24,5 @@ struct CharacterData: Decodable, Hashable {
         case mass
         case hairColor = "hair_color"
         case birthYear = "birth_year"
-        case weight
     }
 }

@@ -11,7 +11,7 @@ struct CharactersView: View {
     @ObservedObject var viewModel: CharactersViewViewModel
     
     var body: some View {
-        ZStack {
+        VStack {
             NavigationStack {
                 List(viewModel.characters, id: \.name) { character in
                     NavigationLink { DetailView(viewModel: DetailViewViewModel(), characterName: character.name, characterImage: character.image)
@@ -50,7 +50,7 @@ struct CharactersView: View {
 
 struct NavigationLinkArrowModifier: ViewModifier {
     var color: Color
-
+    
     func body(content: Content) -> some View {
         HStack {
             content

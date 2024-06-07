@@ -18,12 +18,25 @@ struct DetailView: View {
             ZStack {
                 SpaceBackgroundView()
                 VStack(alignment: .center) {
-                    AsyncImage(url: URL(string: characterImage)) { image in
-                        image.image?.resizable()
+                    AsyncImage(url: URL(string: characterImage)) { phase in
+                        switch phase {
+                        case .empty:
+                            ProgressView()
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .clipShape(Circle())
+                                .shadow(radius: 90)
+                        case .failure(_):
+                            Color.red
+                                .frame(width: 40, height: 40)
+                                .clipShape(Circle())
+                        @unknown default:
+                            EmptyView()
+                        }
                     }
-                    .frame(width: geometry.size.width / 1.4, height: geometry.size.height / 3.9)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .shadow(radius: 90)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 256, height: 256)
                     .padding(.top, 100)
                     Text(characterName)
                         .font(CustomTypography.custom(size: 20))
@@ -37,16 +50,12 @@ struct DetailView: View {
                             .foregroundStyle(CustomColor.white)
                         
                         Text(localizedStringKey: "characterDetailedHair", argument: viewModel.character?.hairColor)
-                                .font(CustomTypography.body)
-                                .foregroundStyle(CustomColor.white)
+                            .font(CustomTypography.body)
+                            .foregroundStyle(CustomColor.white)
                         
                         Text(localizedStringKey: "characterDetailedHeight", argument: viewModel.character?.height)
-                                .font(CustomTypography.body)
-                                .foregroundStyle(CustomColor.white)
-                        
-                        Text(localizedStringKey: "characterDetailedWeight", argument: viewModel.character?.weight)
-                                .font(CustomTypography.body)
-                                .foregroundStyle(CustomColor.white)
+                            .font(CustomTypography.body)
+                            .foregroundStyle(CustomColor.white)
                     }
                     .padding(.top, 10)
                     

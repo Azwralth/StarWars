@@ -52,5 +52,5 @@ struct CustomCellView: View {
 }
 
 #Preview {
-    CustomCellView(character: CharacterImage.init(image: "", name: "", description: ""), avatarRotationDegrees: 0.0, backgroundColor: .darkerGray)
+    CustomCellView(character: CharacterImage.init(image: "", name: "Darth Vader", description: ""), avatarRotationDegrees: 0.0, backgroundColor: .darkerGray)
 }
