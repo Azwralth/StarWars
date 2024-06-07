@@ -15,5 +15,16 @@ struct CharacterData: Decodable, Hashable {
     let name: String
     let height: String
     let mass: String
-    let gender: String
+    let hairColor: String
+    let birthYear: String
+    let weight: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case height
+        case mass
+        case hairColor = "hair_color"
+        case birthYear = "birth_year"
+        case weight
+    }
 }

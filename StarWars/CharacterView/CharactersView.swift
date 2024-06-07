@@ -16,7 +16,7 @@ struct CharactersView: View {
                 List(viewModel.characters, id: \.name) { character in
                     NavigationLink { DetailView(viewModel: DetailViewViewModel(), characterName: character.name, characterImage: character.image)
                     } label: {
-                        CustomCell(character: character, avatarRotationDegrees: viewModel.avatarRotationDegrees, backgroundColor: CustomColor.darkerGray)
+                        CustomCellView(character: character, avatarRotationDegrees: viewModel.avatarRotationDegrees, backgroundColor: CustomColor.darkerGray)
                             .navigationLinkArrow(color: CustomColor.starWarsYellow)
                     }
                     .listRowSeparator(.hidden)
@@ -28,12 +28,13 @@ struct CharactersView: View {
                 .listStyle(.grouped)
                 .scrollContentBackground(.hidden)
                 .listRowSpacing(1)
+                .listRowInsets(EdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 0))
                 .background {
                     SpaceBackgroundView()
                 }
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
-                        Text("Characters")
+                        Text(localizedStringKey: "charactersNavigationTitle")
                             .font(CustomTypography.custom(size: 30))
                             .foregroundStyle(CustomColor.starWarsYellow)
                     }
@@ -44,50 +45,6 @@ struct CharactersView: View {
                 }
             }
         }
-    }
-}
-
-struct CustomCell: View {
-    let character: CharacterImage
-    let avatarRotationDegrees: Double
-    let backgroundColor: Color
-    
-    var body: some View {
-        HStack {
-            AsyncImage(url: URL(string: character.image)) { phase in
-                switch phase {
-                case .empty:
-                    ProgressView()
-                        .frame(width: 40, height: 40)
-                case .success(let image):
-                    image
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                        .clipShape(Circle())
-                case .failure:
-                    Color.red
-                        .frame(width: 40, height: 40)
-                        .clipShape(Circle())
-                @unknown default:
-                    EmptyView()
-                }
-            }
-            .rotation3DEffect(
-                .degrees(avatarRotationDegrees),
-                axis: (x: 0.0, y: 1.0, z: 0.0)
-            )
-        
-            Spacer()
-            
-            Text(character.name)
-                .font(CustomTypography.body)
-                .foregroundStyle(CustomColor.starWarsYellow)
-            
-            Spacer()
-        }
-        .padding()
-        .background(backgroundColor)
-        .clipShape(RoundedRectangle(cornerRadius: 30))
     }
 }
 

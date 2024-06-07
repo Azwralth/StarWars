@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  StarWarsEncyclopedia
+
+  Created by Federico De Luca on 3/3/24.
+
+/* Characters screen */
+"charactersNavigationTitle" = "Characters";
+
+/* Character detailed screen */
+"characterDetailedBirth" = "Birth year: %@";
+"characterDetailedEyes" = "Eyes color: %@";
+"characterDetailedGender" = "Gender: ";
+"characterDetailedHair" = "Hair color: %@";
+"characterDetailedHeight" = "Height: %@ cms";
+"characterDetailedSkin" = "Skin color: %@";
+"characterDetailedWeight" = "Weight: %@ kg";

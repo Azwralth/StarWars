@@ -17,36 +17,43 @@ struct DetailView: View {
         GeometryReader { geometry in
             ZStack {
                 SpaceBackgroundView()
-                VStack {
-                    Text("Profile")
-                        .font(CustomTypography.custom(size: 40))
-                        .foregroundStyle(CustomColor.starWarsYellow)
-                        .padding(.top, 30)
-                    Spacer()
+                VStack(alignment: .center) {
                     AsyncImage(url: URL(string: characterImage)) { image in
                         image.image?.resizable()
                     }
                     .frame(width: geometry.size.width / 1.4, height: geometry.size.height / 3.9)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .shadow(radius: 90)
-                    .padding(.top, -250)
+                    .padding(.top, 100)
                     Text(characterName)
-                        .font(CustomTypography.body)
+                        .font(CustomTypography.custom(size: 20))
                         .foregroundStyle(CustomColor.starWarsYellow)
-                        .lineLimit(1)
-                    HStack {
-                        Text(viewModel.character?.height ?? "")
+                        .padding(.top, 30)
+                        .frame(width: geometry.size.width / 1.4)
+                    
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text(localizedStringKey: "characterDetailedBirth", argument: viewModel.character?.birthYear)
                             .font(CustomTypography.body)
                             .foregroundStyle(CustomColor.white)
                         
-                        Text(viewModel.character?.gender ?? "")
-                            .font(CustomTypography.body)
-                            .foregroundStyle(CustomColor.white)
+                        Text(localizedStringKey: "characterDetailedHair", argument: viewModel.character?.hairColor)
+                                .font(CustomTypography.body)
+                                .foregroundStyle(CustomColor.white)
+                        
+                        Text(localizedStringKey: "characterDetailedHeight", argument: viewModel.character?.height)
+                                .font(CustomTypography.body)
+                                .foregroundStyle(CustomColor.white)
+                        
+                        Text(localizedStringKey: "characterDetailedWeight", argument: viewModel.character?.weight)
+                                .font(CustomTypography.body)
+                                .foregroundStyle(CustomColor.white)
                     }
+                    .padding(.top, 10)
+                    
                     Spacer()
                 }
                 .navigationBarBackButtonHidden(true)
-                .padding(.leading, -25)
+                .padding(.leading, -140)
                 .onAppear {
                     viewModel.fetchCharacter(searchName: characterName)
                 }

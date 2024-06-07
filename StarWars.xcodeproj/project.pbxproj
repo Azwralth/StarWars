@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		7628F7AC2C0F9438009BBFCE /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7628F7AB2C0F9438009BBFCE /* DetailView.swift */; };
 		7628F7AE2C0F98CB009BBFCE /* DetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7628F7AD2C0F98CB009BBFCE /* DetailViewViewModel.swift */; };
+		763BC38D2C130011005DF65B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 763BC38C2C130011005DF65B /* Localizable.strings */; };
+		763BC38F2C130094005DF65B /* TextLocalizationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BC38E2C130094005DF65B /* TextLocalizationExtension.swift */; };
+		763BC3912C131DE9005DF65B /* CustomCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BC3902C131DE9005DF65B /* CustomCellView.swift */; };
 		76605DEC2C1086DD00F20A0B /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76605DEB2C1086DD00F20A0B /* CustomColor.swift */; };
 		76605DEE2C1086E400F20A0B /* CustomTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76605DED2C1086E400F20A0B /* CustomTypography.swift */; };
 		766F4FA62C1090F3007687D5 /* SoloistStraight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 766F4FA42C1090F3007687D5 /* SoloistStraight.otf */; };
@@ -27,6 +30,9 @@
 /* Begin PBXFileReference section */
 		7628F7AB2C0F9438009BBFCE /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		7628F7AD2C0F98CB009BBFCE /* DetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewViewModel.swift; sourceTree = "<group>"; };
+		763BC38C2C130011005DF65B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		763BC38E2C130094005DF65B /* TextLocalizationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextLocalizationExtension.swift; sourceTree = "<group>"; };
+		763BC3902C131DE9005DF65B /* CustomCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellView.swift; sourceTree = "<group>"; };
 		76605DEB2C1086DD00F20A0B /* CustomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		76605DED2C1086E400F20A0B /* CustomTypography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTypography.swift; sourceTree = "<group>"; };
 		766F4FA42C1090F3007687D5 /* SoloistStraight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoloistStraight.otf; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 			children = (
 				76CDD53B2C10963300AC51DF /* Info.plist */,
 				76BD20BC2C0F3E060078A3C8 /* StarWarsApp.swift */,
+				763BC3902C131DE9005DF65B /* CustomCellView.swift */,
 				76605DE82C106D5800F20A0B /* CharacterView */,
 				76605DE92C106D6200F20A0B /* DetailView */,
 				76BD20D22C0F41910078A3C8 /* Models */,
@@ -142,10 +149,12 @@
 		76CDD5462C124AC300AC51DF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				763BC38C2C130011005DF65B /* Localizable.strings */,
 				76BD20C02C0F3E070078A3C8 /* Assets.xcassets */,
 				76605DEB2C1086DD00F20A0B /* CustomColor.swift */,
 				76605DED2C1086E400F20A0B /* CustomTypography.swift */,
 				76CDD5442C11D8A100AC51DF /* SpacingBackground.swift */,
+				763BC38E2C130094005DF65B /* TextLocalizationExtension.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -209,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76CDD51C2C1093D700AC51DF /* Preview Assets.xcassets in Resources */,
+				763BC38D2C130011005DF65B /* Localizable.strings in Resources */,
 				766F4FA62C1090F3007687D5 /* SoloistStraight.otf in Resources */,
 				76BD20C12C0F3E070078A3C8 /* Assets.xcassets in Resources */,
 			);
@@ -222,6 +232,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				76BD20CD2C0F403C0078A3C8 /* NetworkManager.swift in Sources */,
+				763BC3912C131DE9005DF65B /* CustomCellView.swift in Sources */,
+				763BC38F2C130094005DF65B /* TextLocalizationExtension.swift in Sources */,
 				76BD20CB2C0F3F1A0078A3C8 /* CharacterImages.swift in Sources */,
 				76605DEC2C1086DD00F20A0B /* CustomColor.swift in Sources */,
 				76605DEE2C1086E400F20A0B /* CustomTypography.swift in Sources */,
