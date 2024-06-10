@@ -12,19 +12,23 @@
 		763BC38D2C130011005DF65B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 763BC38C2C130011005DF65B /* Localizable.strings */; };
 		763BC38F2C130094005DF65B /* TextLocalizationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BC38E2C130094005DF65B /* TextLocalizationExtension.swift */; };
 		763BC3912C131DE9005DF65B /* CustomCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BC3902C131DE9005DF65B /* CustomCellView.swift */; };
+		763BC3932C133FE1005DF65B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 763BC3922C133FE1005DF65B /* Launch Screen.storyboard */; };
+		763BC39A2C1357D1005DF65B /* PageButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763BC3992C1357D1005DF65B /* PageButtonView.swift */; };
 		76605DEC2C1086DD00F20A0B /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76605DEB2C1086DD00F20A0B /* CustomColor.swift */; };
 		76605DEE2C1086E400F20A0B /* CustomTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76605DED2C1086E400F20A0B /* CustomTypography.swift */; };
 		766F4FA62C1090F3007687D5 /* SoloistStraight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 766F4FA42C1090F3007687D5 /* SoloistStraight.otf */; };
+		76B19C022C16E69D00DEDB51 /* DefaultImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B19C012C16E69D00DEDB51 /* DefaultImageView.swift */; };
+		76B952AA2C1370770026E585 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B952A92C1370770026E585 /* NetworkManager.swift */; };
 		76BD20BD2C0F3E060078A3C8 /* StarWarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD20BC2C0F3E060078A3C8 /* StarWarsApp.swift */; };
 		76BD20BF2C0F3E060078A3C8 /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD20BE2C0F3E060078A3C8 /* CharactersView.swift */; };
 		76BD20C12C0F3E070078A3C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76BD20C02C0F3E070078A3C8 /* Assets.xcassets */; };
 		76BD20CB2C0F3F1A0078A3C8 /* CharacterImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD20CA2C0F3F1A0078A3C8 /* CharacterImages.swift */; };
-		76BD20CD2C0F403C0078A3C8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD20CC2C0F403C0078A3C8 /* NetworkManager.swift */; };
 		76BD20CF2C0F409E0078A3C8 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD20CE2C0F409E0078A3C8 /* Link.swift */; };
 		76BD20D42C0F41B90078A3C8 /* CharactersViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD20D32C0F41B90078A3C8 /* CharactersViewViewModel.swift */; };
 		76CDD51C2C1093D700AC51DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76BD20C32C0F3E070078A3C8 /* Preview Assets.xcassets */; };
 		76CDD53D2C10AD8B00AC51DF /* CharacterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CDD53C2C10AD8B00AC51DF /* CharacterData.swift */; };
 		76CDD5452C11D8A100AC51DF /* SpacingBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CDD5442C11D8A100AC51DF /* SpacingBackground.swift */; };
+		76F6C6132C16F74700DB8B01 /* CustomCellViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6C6122C16F74700DB8B01 /* CustomCellViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,21 +37,25 @@
 		763BC38C2C130011005DF65B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		763BC38E2C130094005DF65B /* TextLocalizationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextLocalizationExtension.swift; sourceTree = "<group>"; };
 		763BC3902C131DE9005DF65B /* CustomCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellView.swift; sourceTree = "<group>"; };
+		763BC3922C133FE1005DF65B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		763BC3992C1357D1005DF65B /* PageButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageButtonView.swift; sourceTree = "<group>"; };
 		76605DEB2C1086DD00F20A0B /* CustomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		76605DED2C1086E400F20A0B /* CustomTypography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTypography.swift; sourceTree = "<group>"; };
 		766F4FA42C1090F3007687D5 /* SoloistStraight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoloistStraight.otf; sourceTree = "<group>"; };
+		76B19C012C16E69D00DEDB51 /* DefaultImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageView.swift; sourceTree = "<group>"; };
+		76B952A92C1370770026E585 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		76BD20B92C0F3E060078A3C8 /* StarWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76BD20BC2C0F3E060078A3C8 /* StarWarsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsApp.swift; sourceTree = "<group>"; };
 		76BD20BE2C0F3E060078A3C8 /* CharactersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersView.swift; sourceTree = "<group>"; };
 		76BD20C02C0F3E070078A3C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76BD20C32C0F3E070078A3C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		76BD20CA2C0F3F1A0078A3C8 /* CharacterImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImages.swift; sourceTree = "<group>"; };
-		76BD20CC2C0F403C0078A3C8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		76BD20CE2C0F409E0078A3C8 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		76BD20D32C0F41B90078A3C8 /* CharactersViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewViewModel.swift; sourceTree = "<group>"; };
 		76CDD53B2C10963300AC51DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76CDD53C2C10AD8B00AC51DF /* CharacterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterData.swift; sourceTree = "<group>"; };
-		76CDD5442C11D8A100AC51DF /* SpacingBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingBackground.swift; sourceTree = "<group>"; };
+		76CDD5442C11D8A100AC51DF /* SpacingBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpacingBackground.swift; path = ../Resources/SpacingBackground.swift; sourceTree = "<group>"; };
+		76F6C6122C16F74700DB8B01 /* CustomCellViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		763BC3982C13577D005DF65B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				76CDD5442C11D8A100AC51DF /* SpacingBackground.swift */,
+				76B19C012C16E69D00DEDB51 /* DefaultImageView.swift */,
+				763BC3992C1357D1005DF65B /* PageButtonView.swift */,
+				76F6C6112C16F72C00DB8B01 /* CustomCellView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		76605DE82C106D5800F20A0B /* CharacterView */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				766F4FA42C1090F3007687D5 /* SoloistStraight.otf */,
+				763BC3922C133FE1005DF65B /* Launch Screen.storyboard */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -108,7 +128,7 @@
 			children = (
 				76CDD53B2C10963300AC51DF /* Info.plist */,
 				76BD20BC2C0F3E060078A3C8 /* StarWarsApp.swift */,
-				763BC3902C131DE9005DF65B /* CustomCellView.swift */,
+				763BC3982C13577D005DF65B /* Views */,
 				76605DE82C106D5800F20A0B /* CharacterView */,
 				76605DE92C106D6200F20A0B /* DetailView */,
 				76BD20D22C0F41910078A3C8 /* Models */,
@@ -131,8 +151,8 @@
 		76BD20D12C0F41850078A3C8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				76BD20CC2C0F403C0078A3C8 /* NetworkManager.swift */,
 				76BD20CE2C0F409E0078A3C8 /* Link.swift */,
+				76B952A92C1370770026E585 /* NetworkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -153,10 +173,18 @@
 				76BD20C02C0F3E070078A3C8 /* Assets.xcassets */,
 				76605DEB2C1086DD00F20A0B /* CustomColor.swift */,
 				76605DED2C1086E400F20A0B /* CustomTypography.swift */,
-				76CDD5442C11D8A100AC51DF /* SpacingBackground.swift */,
 				763BC38E2C130094005DF65B /* TextLocalizationExtension.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		76F6C6112C16F72C00DB8B01 /* CustomCellView */ = {
+			isa = PBXGroup;
+			children = (
+				763BC3902C131DE9005DF65B /* CustomCellView.swift */,
+				76F6C6122C16F74700DB8B01 /* CustomCellViewViewModel.swift */,
+			);
+			path = CustomCellView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +248,7 @@
 				76CDD51C2C1093D700AC51DF /* Preview Assets.xcassets in Resources */,
 				763BC38D2C130011005DF65B /* Localizable.strings in Resources */,
 				766F4FA62C1090F3007687D5 /* SoloistStraight.otf in Resources */,
+				763BC3932C133FE1005DF65B /* Launch Screen.storyboard in Resources */,
 				76BD20C12C0F3E070078A3C8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,18 +260,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76BD20CD2C0F403C0078A3C8 /* NetworkManager.swift in Sources */,
 				763BC3912C131DE9005DF65B /* CustomCellView.swift in Sources */,
 				763BC38F2C130094005DF65B /* TextLocalizationExtension.swift in Sources */,
 				76BD20CB2C0F3F1A0078A3C8 /* CharacterImages.swift in Sources */,
+				763BC39A2C1357D1005DF65B /* PageButtonView.swift in Sources */,
 				76605DEC2C1086DD00F20A0B /* CustomColor.swift in Sources */,
 				76605DEE2C1086E400F20A0B /* CustomTypography.swift in Sources */,
+				76F6C6132C16F74700DB8B01 /* CustomCellViewViewModel.swift in Sources */,
 				76BD20BF2C0F3E060078A3C8 /* CharactersView.swift in Sources */,
 				7628F7AC2C0F9438009BBFCE /* DetailView.swift in Sources */,
 				76CDD5452C11D8A100AC51DF /* SpacingBackground.swift in Sources */,
+				76B19C022C16E69D00DEDB51 /* DefaultImageView.swift in Sources */,
 				76BD20BD2C0F3E060078A3C8 /* StarWarsApp.swift in Sources */,
 				76CDD53D2C10AD8B00AC51DF /* CharacterData.swift in Sources */,
 				76BD20CF2C0F409E0078A3C8 /* Link.swift in Sources */,
+				76B952AA2C1370770026E585 /* NetworkManager.swift in Sources */,
 				7628F7AE2C0F98CB009BBFCE /* DetailViewViewModel.swift in Sources */,
 				76BD20D42C0F41B90078A3C8 /* CharactersViewViewModel.swift in Sources */,
 			);
@@ -384,8 +416,8 @@
 				INFOPLIST_FILE = StarWars/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -413,8 +445,8 @@
 				INFOPLIST_FILE = StarWars/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

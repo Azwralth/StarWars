@@ -2,7 +2,7 @@
 //  NetworkManager.swift
 //  StarWars
 //
-//  Created by Владислав Соколов on 04.06.2024.
+//  Created by Владислав Соколов on 07.06.2024.
 //
 
 import UIKit
@@ -19,7 +19,7 @@ final class NetworkManager {
     private init() {}
     
     func fetch<T: Decodable>(_ type: T.Type, from url: URL?, completion: @escaping(Result<T, NetworkError>) -> Void) {
-        guard let url else {
+        guard let url = url else {
             completion(.failure(.invalidURL))
             return
         }
@@ -40,5 +40,27 @@ final class NetworkManager {
             }
         }.resume()
     }
+    
+    func fetchImage(from url: String?, completion: @escaping (Result<UIImage, NetworkError>) -> Void) {
+        guard let url = URL(string: url ?? "") else {
+                completion(.failure(.invalidURL))
+                return
+            }
+            
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let _ = error {
+                    completion(.failure(.noData))
+                    return
+                }
+                
+                guard let data = data, let image = UIImage(data: data) else {
+                    completion(.failure(.noData))
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    completion(.success(image))
+                }
+            }.resume()
+        }
 }
-

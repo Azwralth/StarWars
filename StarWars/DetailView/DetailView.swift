@@ -9,8 +9,6 @@ import SwiftUI
 
 struct DetailView: View {
     @ObservedObject var viewModel: DetailViewViewModel
-    let characterName: String
-    let characterImage: String
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -18,27 +16,16 @@ struct DetailView: View {
             ZStack {
                 SpaceBackgroundView()
                 VStack(alignment: .center) {
-                    AsyncImage(url: URL(string: characterImage)) { phase in
-                        switch phase {
-                        case .empty:
-                            ProgressView()
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .clipShape(Circle())
-                                .shadow(radius: 90)
-                        case .failure(_):
-                            Color.red
-                                .frame(width: 40, height: 40)
-                                .clipShape(Circle())
-                        @unknown default:
-                            EmptyView()
-                        }
+                    if let image = viewModel.image {
+                        Image(uiImage: image)
+                            .resizable()
+                            .clipShape(Circle())
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 256, height: 256)
+                    } else {
+                        DefaultImageView(width: 256, height: 256)
                     }
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 256, height: 256)
-                    .padding(.top, 100)
-                    Text(characterName)
+                    Text(viewModel.characterName)
                         .font(CustomTypography.custom(size: 20))
                         .foregroundStyle(CustomColor.starWarsYellow)
                         .padding(.top, 30)
@@ -64,7 +51,7 @@ struct DetailView: View {
                 .navigationBarBackButtonHidden(true)
                 .padding(.leading, -140)
                 .onAppear {
-                    viewModel.fetchCharacter(searchName: characterName)
+                    viewModel.fetchCharacter(searchName: viewModel.characterName)
                 }
             }
             .toolbar {
@@ -84,5 +71,5 @@ struct DetailView: View {
 }
 
 #Preview {
-    DetailView(viewModel: DetailViewViewModel(), characterName: "Darth Vader", characterImage: "https://lumiere-a.akamaihd.net/v1/images/databank_aaylasecura_01_169_39a65af2.jpeg")
+    DetailView(viewModel: DetailViewViewModel(characterName: "", characterImage: ""))
 }

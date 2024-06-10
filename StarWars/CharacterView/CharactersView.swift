@@ -14,21 +14,15 @@ struct CharactersView: View {
         VStack {
             NavigationStack {
                 List(viewModel.characters, id: \.name) { character in
-                    NavigationLink { DetailView(viewModel: DetailViewViewModel(), characterName: character.name, characterImage: character.image)
+                    NavigationLink { DetailView(viewModel: DetailViewViewModel(characterName: character.name, characterImage: character.image))
                     } label: {
-                        CustomCellView(character: character, avatarRotationDegrees: viewModel.avatarRotationDegrees, backgroundColor: CustomColor.darkerGray)
-                            .navigationLinkArrow(color: CustomColor.starWarsYellow)
+                        CustomCellView(viewModel: CustomCellViewViewModel(character: character))
                     }
                     .listRowSeparator(.hidden)
                     .listRowBackground(CustomColor.clear)
-                    .onAppear {
-                        viewModel.startAvatarRotation()
-                    }
                 }
                 .listStyle(.grouped)
                 .scrollContentBackground(.hidden)
-                .listRowSpacing(1)
-                .listRowInsets(EdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 0))
                 .background {
                     SpaceBackgroundView()
                 }
@@ -41,30 +35,10 @@ struct CharactersView: View {
                 }
                 .toolbarBackground(CustomColor.darkerGray, for: .navigationBar)
                 .onAppear {
-                    viewModel.fetchCharacters(from: Link.characterUrl.url)
+                    viewModel.fetchCharacters(from: Link.characterImageUrl.url)
                 }
             }
         }
-    }
-}
-
-struct NavigationLinkArrowModifier: ViewModifier {
-    var color: Color
-    
-    func body(content: Content) -> some View {
-        HStack {
-            content
-            Spacer()
-            Image(systemName: "chevron.right")
-                .foregroundColor(color)
-                .font(.system(size: 20, weight: .bold))
-        }
-    }
-}
-
-extension View {
-    func navigationLinkArrow(color: Color) -> some View {
-        self.modifier(NavigationLinkArrowModifier(color: color))
     }
 }
 

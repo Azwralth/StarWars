@@ -5,12 +5,22 @@
 //  Created by Владислав Соколов on 04.06.2024.
 //
 
-import Foundation
+import UIKit
 
-class DetailViewViewModel: ObservableObject {
+final class DetailViewViewModel: ObservableObject {
     @Published var character: CharacterData?
+    @Published var image: UIImage?
+    
+    var characterName: String
+    var characterImage: String
     
     private let networkManager = NetworkManager.shared
+    
+    init(characterName: String, characterImage: String) {
+        self.characterName = characterName
+        self.characterImage = characterImage
+        fetchImage(from: characterImage)
+    }
     
     func fetchCharacter(searchName: String) {
         guard let url = URL(string: "https://swapi.dev/api/people/?search=\(searchName)") else {
@@ -24,6 +34,17 @@ class DetailViewViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     self?.character = characterData.results.first
                 }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func fetchImage(from url: String) {
+        networkManager.fetchImage(from: url) { [weak self] result in
+            switch result {
+            case .success(let image):
+                self?.image = image
             case .failure(let error):
                 print(error)
             }

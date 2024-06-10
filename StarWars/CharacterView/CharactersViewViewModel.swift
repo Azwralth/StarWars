@@ -9,7 +9,7 @@ import SwiftUI
 
 class CharactersViewViewModel: ObservableObject {
     @Published var characters: [CharacterImage] = []
-    @Published var avatarRotationDegrees = 0.0
+    @Published var currentPage = 1
     
     private let networkManager = NetworkManager.shared
     
@@ -22,14 +22,6 @@ class CharactersViewViewModel: ObservableObject {
                 }
             case .failure(let error):
                 print(error)
-            }
-        }
-    }
-    
-    func startAvatarRotation() {
-        DispatchQueue.main.async { [weak self] in
-            withAnimation(Animation.linear(duration: 10).repeatForever(autoreverses: false)) {
-                self?.avatarRotationDegrees = 360
             }
         }
     }
