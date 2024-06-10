@@ -35,7 +35,9 @@ struct CharactersView: View {
                 }
                 .toolbarBackground(CustomColor.darkerGray, for: .navigationBar)
                 .onAppear {
-                    viewModel.fetchCharacters(from: Link.characterImageUrl.url)
+                    if viewModel.characters.isEmpty {
+                        viewModel.fetchCharacters(from: Link.characterImageUrl.url)
+                    }
                 }
             }
         }

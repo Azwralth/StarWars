@@ -10,7 +10,6 @@ import SwiftUI
 final class CustomCellViewViewModel: ObservableObject {
     @Published var image: UIImage?
     @Published var avatarRotationDegrees = 0.0
-    @Published var backgroundColor: Color = .white
     @Published var character: CharacterImage?
     
     private let networkManager = NetworkManager.shared
@@ -18,6 +17,7 @@ final class CustomCellViewViewModel: ObservableObject {
     init(character: CharacterImage) {
         self.character = character
         self.fetchImage(from: character.image)
+//        self.startAvatarRotation()
     }
     
     func fetchImage(from url: String) {

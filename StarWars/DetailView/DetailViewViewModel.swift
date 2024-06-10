@@ -11,8 +11,8 @@ final class DetailViewViewModel: ObservableObject {
     @Published var character: CharacterData?
     @Published var image: UIImage?
     
-    var characterName: String
-    var characterImage: String
+    let characterName: String
+    let characterImage: String
     
     private let networkManager = NetworkManager.shared
     

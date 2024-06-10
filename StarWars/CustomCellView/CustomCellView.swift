@@ -18,7 +18,7 @@ struct CustomCellView: View {
                     .clipShape(Circle())
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 40, height: 40)
-                    .padding(.all, 9)
+                    .padding(.all, 7)
                     .rotation3DEffect(
                         .degrees(viewModel.avatarRotationDegrees),
                         axis: (x: 0.0, y: 1.0, z: 0.0)
@@ -43,7 +43,7 @@ struct CustomCellView: View {
         .onAppear {
             viewModel.startAvatarRotation()
         }
-        .background(viewModel.backgroundColor)
+        .background(CustomColor.darkerGray)
         .clipShape(RoundedRectangle(cornerRadius: 30))
     }
 }

@@ -18,7 +18,7 @@ enum Link {
     var url: URL {
         switch self {
         case .characterImageUrl:
-            URL(string: "https://starwars-databank-server.vercel.app/api/v1/characters?page=1&limit=9")!
+            URL(string: "https://starwars-databank-server.vercel.app/api/v1/characters?page=1&limit=10")!
         case .filmUrl:
             URL(string: "https://swapi.dev/api/films/")!
         case .planetUrl:
