@@ -17,7 +17,6 @@ final class CustomCellViewViewModel: ObservableObject {
     init(character: CharacterImage) {
         self.character = character
         self.fetchImage(from: character.image)
-//        self.startAvatarRotation()
     }
     
     func fetchImage(from url: String) {

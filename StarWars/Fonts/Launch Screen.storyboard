@@ -16,14 +16,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="Pvw-Ye-g6v">
-                                <rect key="frame" x="-54" y="-48" width="537" height="980"/>
+                                <rect key="frame" x="-54" y="-48" width="537" height="1010"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Pvw-Ye-g6v" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-48" id="EYR-7k-YdG"/>
-                            <constraint firstAttribute="bottom" secondItem="Pvw-Ye-g6v" secondAttribute="bottom" id="RSM-M6-Wjo"/>
+                            <constraint firstAttribute="bottom" secondItem="Pvw-Ye-g6v" secondAttribute="bottom" constant="-30" id="RSM-M6-Wjo"/>
                             <constraint firstAttribute="trailing" secondItem="Pvw-Ye-g6v" secondAttribute="trailing" constant="-53" id="d24-Un-hOX"/>
                             <constraint firstItem="Pvw-Ye-g6v" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-54" id="tM3-fI-60f"/>
                         </constraints>
@@ -31,7 +31,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
+            <point key="canvasLocation" x="51.627906976744185" y="374.03433476394855"/>
         </scene>
     </scenes>
     <resources>

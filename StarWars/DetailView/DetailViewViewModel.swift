@@ -13,12 +13,19 @@ final class DetailViewViewModel: ObservableObject {
     
     let characterName: String
     let characterImage: String
+    let characterDescription: String
+    
+    var hasCharacterDetails: Bool {
+        guard let character = character else { return false }
+        return !(character.birthYear.isEmpty || character.hairColor.isEmpty || character.height.isEmpty)
+    }
     
     private let networkManager = NetworkManager.shared
     
-    init(characterName: String, characterImage: String) {
+    init(characterName: String, characterImage: String, characterDescription: String) {
         self.characterName = characterName
         self.characterImage = characterImage
+        self.characterDescription = characterDescription
         fetchImage(from: characterImage)
     }
     

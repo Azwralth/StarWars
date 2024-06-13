@@ -27,6 +27,7 @@
 		76CDD51C2C1093D700AC51DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76BD20C32C0F3E070078A3C8 /* Preview Assets.xcassets */; };
 		76CDD53D2C10AD8B00AC51DF /* CharacterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CDD53C2C10AD8B00AC51DF /* CharacterData.swift */; };
 		76CDD5452C11D8A100AC51DF /* SpacingBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CDD5442C11D8A100AC51DF /* SpacingBackground.swift */; };
+		76E641062C1B12B600A41091 /* ButtonPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E641052C1B12B600A41091 /* ButtonPage.swift */; };
 		76F6C6132C16F74700DB8B01 /* CustomCellViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6C6122C16F74700DB8B01 /* CustomCellViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		76CDD53B2C10963300AC51DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76CDD53C2C10AD8B00AC51DF /* CharacterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterData.swift; sourceTree = "<group>"; };
 		76CDD5442C11D8A100AC51DF /* SpacingBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpacingBackground.swift; path = ../Resources/SpacingBackground.swift; sourceTree = "<group>"; };
+		76E641052C1B12B600A41091 /* ButtonPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonPage.swift; path = ../CharacterView/ButtonPage.swift; sourceTree = "<group>"; };
 		76F6C6122C16F74700DB8B01 /* CustomCellViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +74,7 @@
 			children = (
 				76CDD5442C11D8A100AC51DF /* SpacingBackground.swift */,
 				76B19C012C16E69D00DEDB51 /* DefaultImageView.swift */,
+				76E641052C1B12B600A41091 /* ButtonPage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				7628F7AC2C0F9438009BBFCE /* DetailView.swift in Sources */,
 				76CDD5452C11D8A100AC51DF /* SpacingBackground.swift in Sources */,
 				76B19C022C16E69D00DEDB51 /* DefaultImageView.swift in Sources */,
+				76E641062C1B12B600A41091 /* ButtonPage.swift in Sources */,
 				76BD20BD2C0F3E060078A3C8 /* StarWarsApp.swift in Sources */,
 				76CDD53D2C10AD8B00AC51DF /* CharacterData.swift in Sources */,
 				76BD20CF2C0F409E0078A3C8 /* Link.swift in Sources */,

@@ -21,9 +21,9 @@ struct DetailView: View {
                             .resizable()
                             .clipShape(Circle())
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: 256, height: 256)
+                            .frame(width: geometry.size.width / 3, height: geometry.size.height / 3)
                     } else {
-                        DefaultImageView(width: 256, height: 256)
+                        DefaultImageView(width: geometry.size.width / 3, height: geometry.size.height / 3)
                     }
                     Text(viewModel.characterName)
                         .font(CustomTypography.custom(size: 20))
@@ -31,20 +31,27 @@ struct DetailView: View {
                         .padding(.top, 30)
                         .frame(width: geometry.size.width / 1.4)
                     
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text(localizedStringKey: "characterDetailedBirth", argument: viewModel.character?.birthYear)
+                    if viewModel.hasCharacterDetails {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text(localizedStringKey: "characterDetailedBirth", argument: viewModel.character?.birthYear)
+                                .font(CustomTypography.body)
+                                .foregroundStyle(CustomColor.white)
+                            Text(localizedStringKey: "characterDetailedHair", argument: viewModel.character?.hairColor)
+                                .font(CustomTypography.body)
+                                .foregroundStyle(CustomColor.white)
+                            
+                            Text(localizedStringKey: "characterDetailedHeight", argument: viewModel.character?.height)
+                                .font(CustomTypography.body)
+                                .foregroundStyle(CustomColor.white)
+                        }
+                        .padding(.top, 10)
+                    } else {
+                        Text(viewModel.characterDescription)
+                            .frame(width: geometry.size.width / 1.1)
                             .font(CustomTypography.body)
                             .foregroundStyle(CustomColor.white)
-                        
-                        Text(localizedStringKey: "characterDetailedHair", argument: viewModel.character?.hairColor)
-                            .font(CustomTypography.body)
-                            .foregroundStyle(CustomColor.white)
-                        
-                        Text(localizedStringKey: "characterDetailedHeight", argument: viewModel.character?.height)
-                            .font(CustomTypography.body)
-                            .foregroundStyle(CustomColor.white)
+                            .padding(.top, 10)
                     }
-                    .padding(.top, 10)
                     
                     Spacer()
                 }
@@ -71,5 +78,5 @@ struct DetailView: View {
 }
 
 #Preview {
-    DetailView(viewModel: DetailViewViewModel(characterName: "", characterImage: ""))
+    DetailView(viewModel: DetailViewViewModel(characterName: "", characterImage: "", characterDescription: "123"))
 }
