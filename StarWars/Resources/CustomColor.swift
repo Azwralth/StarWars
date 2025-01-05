@@ -1,8 +1,8 @@
 //
 //  CustomColor.swift
-//  StarWarsEncyclopedia
+//  StarWars
 //
-//  Created by Federico De Luca on 30/12/23.
+//  Created by Владислав Соколов on 17.06.2024.
 //
 
 import Foundation
@@ -15,6 +15,9 @@ struct CustomColor {
     static var gray: Color { .gray }
     static var starWarsYellow: Color { Color("StarWarsYellow") }
     static var white: Color { .white }
+    static var customBlue: Color { Color("customBlue") }
+    static var blue: Color { .blue }
+    static var darkBlue: Color { Color("darkBlue") }
     
     private init() {}
 }

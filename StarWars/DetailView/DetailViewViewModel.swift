@@ -30,7 +30,7 @@ final class DetailViewViewModel: ObservableObject {
     }
     
     func fetchCharacter(searchName: String) {
-        guard let url = URL(string: "https://swapi.dev/api/people/?search=\(searchName)") else {
+        guard let url = URL(string: "\(Link.searchCharacter)\(searchName)") else {
             print("Invalid URL")
             return
         }

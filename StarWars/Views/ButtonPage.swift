@@ -2,7 +2,7 @@
 //  ButtonPage.swift
 //  StarWars
 //
-//  Created by Владислав Соколов on 13.06.2024.
+//  Created by Владислав Соколов on 05.01.2025.
 //
 
 import SwiftUI

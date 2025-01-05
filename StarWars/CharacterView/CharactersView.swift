@@ -14,11 +14,11 @@ struct CharactersView: View {
         NavigationStack {
             ZStack {
                 List(viewModel.characters, id: \.name) { character in
-                    NavigationLink { DetailView(viewModel: DetailViewViewModel(characterName: character.name, characterImage: character.image, characterDescription: character.description))
-                    } label: {
+                    CustomNavigationLink {
                         CustomCellView(viewModel: CustomCellViewViewModel(character: character))
+                    } destination: {
+                        DetailView(viewModel: DetailViewViewModel(characterName: character.name, characterImage: character.image, characterDescription: character.description))
                     }
-                    .listRowSeparator(.hidden)
                     .listRowBackground(CustomColor.clear)
                 }
                 .listStyle(.grouped)
@@ -34,13 +34,6 @@ struct CharactersView: View {
                     }
                 }
                 .toolbarBackground(CustomColor.darkerGray, for: .navigationBar)
-                .onAppear {
-                    if viewModel.characters.isEmpty {
-                        withAnimation {
-                            viewModel.fetchCharacters(from: Link.characterImageUrl.url)
-                        }
-                    }
-                }
                 .toolbar {
                     ToolbarItem(placement: .bottomBar) {
                         HStack {

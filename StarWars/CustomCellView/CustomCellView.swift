@@ -11,7 +11,7 @@ struct CustomCellView: View {
     
     var body: some View {
         HStack {
-            Group {
+            VStack {
                 if let image = viewModel.image {
                     Image(uiImage: image)
                         .resizable()

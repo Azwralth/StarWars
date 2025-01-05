@@ -14,6 +14,10 @@ final class CharactersViewViewModel: ObservableObject {
     private let networkManager = NetworkManager.shared
     private let totalPage = 952
     
+    init() {
+        fetchCharacters()
+    }
+    
     func isFirstPage() -> Bool {
         currentPage == 1
     }
@@ -22,30 +26,7 @@ final class CharactersViewViewModel: ObservableObject {
         currentPage == totalPage
     }
     
-    func fetchCharacters(from url: URL) {
-        networkManager.fetch(CharacterImages.self, from: url) { [weak self] result in
-            switch result {
-            case .success(let charactersData):
-                DispatchQueue.main.async {
-                    self?.characters = charactersData.data
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    func fetchNextPageCharacter() {
-        guard currentPage < totalPage else { return }
-        fetchCharacters(for: currentPage + 1)
-    }
-    
-    func fetchPrevPageCharacter() {
-        guard currentPage > 1 else { return }
-        fetchCharacters(for: currentPage - 1)
-    }
-    
-    private func fetchCharacters(for page: Int) {
+    func fetchCharacters(from page: Int = 1) {
         guard let url = URL(string: "\(Link.characterImageUrl.url.absoluteString)?page=\(page)&limit=10") else {
             print(NetworkError.invalidURL)
             return
@@ -62,5 +43,15 @@ final class CharactersViewViewModel: ObservableObject {
                 print(error)
             }
         }
+    }
+    
+    func fetchNextPageCharacter() {
+        guard currentPage < totalPage else { return }
+        fetchCharacters(from: currentPage + 1)
+    }
+    
+    func fetchPrevPageCharacter() {
+        guard currentPage > 1 else { return }
+        fetchCharacters(from: currentPage - 1)
     }
 }
