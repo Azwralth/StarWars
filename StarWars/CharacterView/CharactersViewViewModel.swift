@@ -11,10 +11,11 @@ final class CharactersViewViewModel: ObservableObject {
     @Published var characters: [CharacterImage] = []
     @Published var currentPage = 1
     
-    private let networkManager = NetworkManager.shared
+    private let networkManager: ServerApi
     private let totalPage = 952
     
-    init() {
+    init(networkManager: ServerApi) {
+        self.networkManager = networkManager
         fetchCharacters()
     }
     

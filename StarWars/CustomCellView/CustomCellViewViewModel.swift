@@ -12,10 +12,11 @@ final class CustomCellViewViewModel: ObservableObject {
     @Published var avatarRotationDegrees = 0.0
     @Published var character: CharacterImage?
     
-    private let networkManager = NetworkManager.shared
+    private let networkManager: ServerApi
     
-    init(character: CharacterImage) {
+    init(character: CharacterImage, networkManager: ServerApi) {
         self.character = character
+        self.networkManager = networkManager
         self.fetchImage(from: character.image)
     }
     

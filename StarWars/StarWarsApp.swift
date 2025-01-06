@@ -11,8 +11,7 @@ import SwiftUI
 struct StarWarsApp: App {    
     var body: some Scene {
         WindowGroup {
-            CharactersView(viewModel: CharactersViewViewModel())
-                .environmentObject(CharactersViewViewModel())
+            CharactersView(viewModel: CharactersViewViewModel(networkManager: NetworkManager()))
         }
     }
 }

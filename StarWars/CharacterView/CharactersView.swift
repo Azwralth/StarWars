@@ -15,9 +15,9 @@ struct CharactersView: View {
             ZStack {
                 List(viewModel.characters, id: \.name) { character in
                     CustomNavigationLink {
-                        CustomCellView(viewModel: CustomCellViewViewModel(character: character))
+                        CustomCellView(viewModel: CustomCellViewViewModel(character: character, networkManager: NetworkManager()))
                     } destination: {
-                        DetailView(viewModel: DetailViewViewModel(characterName: character.name, characterImage: character.image, characterDescription: character.description))
+                        DetailView(viewModel: DetailViewViewModel(characterName: character.name, characterImage: character.image, characterDescription: character.description, networkManager: NetworkManager()))
                     }
                     .listRowBackground(CustomColor.clear)
                 }
@@ -50,5 +50,5 @@ struct CharactersView: View {
 }
 
 #Preview {
-    CharactersView(viewModel: CharactersViewViewModel())
+    CharactersView(viewModel: CharactersViewViewModel(networkManager: NetworkManager()))
 }

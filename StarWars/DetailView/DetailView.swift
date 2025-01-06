@@ -80,5 +80,5 @@ struct DetailView: View {
 }
 
 #Preview {
-    DetailView(viewModel: DetailViewViewModel(characterName: "Luke", characterImage: "", characterDescription: "123"))
+    DetailView(viewModel: DetailViewViewModel(characterName: "Luke", characterImage: "", characterDescription: "123", networkManager: NetworkManager()))
 }

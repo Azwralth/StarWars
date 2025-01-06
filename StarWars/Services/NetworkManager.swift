@@ -13,11 +13,12 @@ enum NetworkError: Error {
     case decodingError
 }
 
-final class NetworkManager {
-    static let shared = NetworkManager()
-    
-    private init() {}
-    
+protocol ServerApi {
+    func fetch<T: Decodable>(_ type: T.Type, from url: URL?, completion: @escaping(Result<T, NetworkError>) -> Void)
+    func fetchImage(from url: String?, completion: @escaping(Result<UIImage, NetworkError>) -> Void)
+}
+
+final class NetworkManager: ServerApi {
     func fetch<T: Decodable>(_ type: T.Type, from url: URL?, completion: @escaping(Result<T, NetworkError>) -> Void) {
         guard let url = url else {
             completion(.failure(.invalidURL))
@@ -43,24 +44,24 @@ final class NetworkManager {
     
     func fetchImage(from url: String?, completion: @escaping (Result<UIImage, NetworkError>) -> Void) {
         guard let url = URL(string: url ?? "") else {
-                completion(.failure(.invalidURL))
+            completion(.failure(.invalidURL))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let _ = error {
+                completion(.failure(.noData))
                 return
             }
             
-            URLSession.shared.dataTask(with: url) { data, response, error in
-                if let _ = error {
-                    completion(.failure(.noData))
-                    return
-                }
-                
-                guard let data = data, let image = UIImage(data: data) else {
-                    completion(.failure(.noData))
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    completion(.success(image))
-                }
-            }.resume()
-        }
+            guard let data = data, let image = UIImage(data: data) else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            DispatchQueue.main.async {
+                completion(.success(image))
+            }
+        }.resume()
+    }
 }
