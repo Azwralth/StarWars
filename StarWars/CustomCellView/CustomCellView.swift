@@ -7,7 +7,11 @@
 import SwiftUI
 
 struct CustomCellView: View {
-    @ObservedObject var viewModel: CustomCellViewViewModel
+    @StateObject var viewModel: CustomCellViewViewModel
+    
+    init(character: CharacterImage, networkManager: TestServerApi) {
+        _viewModel = StateObject(wrappedValue: CustomCellViewViewModel(character: character, networkManager: networkManager))
+    }
     
     var body: some View {
         HStack {
@@ -29,7 +33,6 @@ struct CustomCellView: View {
             )
             .onAppear {
                 viewModel.startAvatarRotation()
-                
                 Task {
                     await viewModel.fetchImage(from: viewModel.character?.image ?? "")
                 }
