@@ -11,12 +11,11 @@ final class CharactersViewViewModel: ObservableObject {
     @Published var characters: [CharacterImage] = []
     @Published var currentPage = 1
     
-    private let networkManager: ServerApi
+    private let networkManager: TestServerApi
     private let totalPage = 952
     
-    init(networkManager: ServerApi) {
+    init(networkManager: TestServerApi) {
         self.networkManager = networkManager
-        fetchCharacters()
     }
     
     func isFirstPage() -> Bool {
@@ -27,32 +26,30 @@ final class CharactersViewViewModel: ObservableObject {
         currentPage == totalPage
     }
     
-    func fetchCharacters(from page: Int = 1) {
+    func fetchCharacters(from page: Int) async {
         guard let url = URL(string: "\(Link.characterImageUrl.url.absoluteString)?page=\(page)&limit=10") else {
             print(NetworkError.invalidURL)
             return
         }
         
-        networkManager.fetch(CharacterImages.self, from: url) { [weak self] result in
-            switch result {
-            case .success(let charactersData):
-                DispatchQueue.main.async {
-                    self?.characters = charactersData.data
-                    self?.currentPage = page
-                }
-            case .failure(let error):
-                print(error)
+        do {
+            let characterData = try await networkManager.fetch(CharacterImages.self, url: url)
+            DispatchQueue.main.async { [weak self] in
+                self?.characters = characterData.data
+                self?.currentPage = page
             }
+        } catch {
+            print("failed to fetch characters")
         }
     }
     
-    func fetchNextPageCharacter() {
+    func fetchNextPageCharacter() async {
         guard currentPage < totalPage else { return }
-        fetchCharacters(from: currentPage + 1)
+        await fetchCharacters(from: currentPage + 1)
     }
     
-    func fetchPrevPageCharacter() {
+    func fetchPrevPageCharacter() async {
         guard currentPage > 1 else { return }
-        fetchCharacters(from: currentPage - 1)
+        await fetchCharacters(from: currentPage - 1)
     }
 }

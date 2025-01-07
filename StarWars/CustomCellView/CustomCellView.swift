@@ -29,6 +29,10 @@ struct CustomCellView: View {
             )
             .onAppear {
                 viewModel.startAvatarRotation()
+                
+                Task {
+                    await viewModel.fetchImage(from: viewModel.character?.image ?? "")
+                }
             }
             
             Spacer()
@@ -43,4 +47,5 @@ struct CustomCellView: View {
         .clipShape(RoundedRectangle(cornerRadius: 30))
     }
 }
+
 

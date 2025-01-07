@@ -15,11 +15,21 @@ struct CharactersView: View {
             ZStack {
                 List(viewModel.characters, id: \.name) { character in
                     CustomNavigationLink {
-                        CustomCellView(viewModel: CustomCellViewViewModel(character: character, networkManager: NetworkManager()))
+                        CustomCellView(viewModel: CustomCellViewViewModel(character: character, networkManager: NetworkManagerAsyncAwait()))
                     } destination: {
-                        DetailView(viewModel: DetailViewViewModel(characterName: character.name, characterImage: character.image, characterDescription: character.description, networkManager: NetworkManager()))
+                        DetailView(viewModel: DetailViewViewModel(
+                            characterName: character.name,
+                            characterImage: character.image,
+                            characterDescription: character.description,
+                            networkManager: NetworkManagerAsyncAwait()
+                        ))
                     }
                     .listRowBackground(CustomColor.clear)
+                }
+                .onAppear {
+                    Task {
+                        await viewModel.fetchCharacters(from: viewModel.currentPage)
+                    }
                 }
                 .listStyle(.grouped)
                 .scrollContentBackground(.hidden)
@@ -37,10 +47,26 @@ struct CharactersView: View {
                 .toolbar {
                     ToolbarItem(placement: .bottomBar) {
                         HStack {
-                            ButtonPage(pointingDirection: .left, isDisabled: viewModel.isFirstPage(), action: viewModel.fetchPrevPageCharacter)
+                            ButtonPage(
+                                pointingDirection: .left,
+                                isDisabled: viewModel.isFirstPage(),
+                                action: {
+                                    Task {
+                                        await viewModel.fetchPrevPageCharacter()
+                                    }
+                                }
+                            )
                             Text(viewModel.currentPage.formatted())
                                 .font(CustomTypography.h1)
-                            ButtonPage(pointingDirection: .right, isDisabled: viewModel.isLastPage(), action: viewModel.fetchNextPageCharacter)
+                            ButtonPage(
+                                pointingDirection: .right,
+                                isDisabled: viewModel.isLastPage(),
+                                action: {
+                                    Task {
+                                        await viewModel.fetchNextPageCharacter()
+                                    }
+                                }
+                            )
                         }
                     }
                 }
@@ -49,6 +75,7 @@ struct CharactersView: View {
     }
 }
 
+
 #Preview {
-    CharactersView(viewModel: CharactersViewViewModel(networkManager: NetworkManager()))
+    CharactersView(viewModel: CharactersViewViewModel(networkManager: NetworkManagerAsyncAwait()))
 }

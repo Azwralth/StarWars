@@ -20,42 +20,39 @@ final class DetailViewViewModel: ObservableObject {
         return !(character.birthYear.isEmpty || character.hairColor.isEmpty || character.height.isEmpty)
     }
     
-    private let networkManager: ServerApi
+    private let networkManager: TestServerApi
     
-    init(characterName: String, characterImage: String, characterDescription: String, networkManager: ServerApi) {
+    init(characterName: String, characterImage: String, characterDescription: String, networkManager: TestServerApi) {
         self.characterName = characterName
         self.characterImage = characterImage
         self.characterDescription = characterDescription
         self.networkManager = networkManager
-        fetchImage(from: characterImage)
     }
     
-    func fetchCharacter(searchName: String) {
+    func fetchCharacter(searchName: String) async {
         guard let url = URL(string: "\(Link.searchCharacter)\(searchName)") else {
             print("Invalid URL")
             return
         }
         
-        networkManager.fetch(CharactersData.self, from: url) { [weak self] result in
-            switch result {
-            case .success(let characterData):
-                DispatchQueue.main.async {
-                    self?.character = characterData.results.first
-                }
-            case .failure(let error):
-                print(error)
+        do {
+            let characterData = try await networkManager.fetch(CharactersData.self, url: url)
+            DispatchQueue.main.async { [weak self] in
+                self?.character = characterData.results.first
             }
+        } catch {
+            print("failed to fetch detail character")
         }
     }
     
-    func fetchImage(from url: String) {
-        networkManager.fetchImage(from: url) { [weak self] result in
-            switch result {
-            case .success(let image):
-                self?.image = image
-            case .failure(let error):
-                print(error)
+    func fetchImage(from url: String) async {
+        do {
+            let imageData = try await networkManager.fetchImage(url: URL(string: url))
+            DispatchQueue.main.async { [weak self] in
+                self?.image = imageData
             }
+        } catch {
+            print("failed to fetch image")
         }
     }
 }

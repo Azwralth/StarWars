@@ -59,7 +59,10 @@ struct DetailView: View {
                     .padding(.bottom, 100)
                     .navigationBarBackButtonHidden(true)
                     .onAppear {
-                        viewModel.fetchCharacter(searchName: viewModel.characterName)
+                        Task {
+                            await viewModel.fetchCharacter(searchName: viewModel.characterName)
+                            await viewModel.fetchImage(from: viewModel.characterImage)
+                        }
                     }
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
@@ -80,5 +83,5 @@ struct DetailView: View {
 }
 
 #Preview {
-    DetailView(viewModel: DetailViewViewModel(characterName: "Luke", characterImage: "", characterDescription: "123", networkManager: NetworkManager()))
+    DetailView(viewModel: DetailViewViewModel(characterName: "Luke", characterImage: "", characterDescription: "123", networkManager: NetworkManagerAsyncAwait()))
 }

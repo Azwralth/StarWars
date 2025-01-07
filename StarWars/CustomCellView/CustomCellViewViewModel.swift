@@ -12,22 +12,23 @@ final class CustomCellViewViewModel: ObservableObject {
     @Published var avatarRotationDegrees = 0.0
     @Published var character: CharacterImage?
     
-    private let networkManager: ServerApi
+    private let networkManager: TestServerApi
     
-    init(character: CharacterImage, networkManager: ServerApi) {
+    init(character: CharacterImage, networkManager: TestServerApi) {
         self.character = character
         self.networkManager = networkManager
-        self.fetchImage(from: character.image)
     }
     
-    func fetchImage(from url: String) {
-        networkManager.fetchImage(from: url) { [weak self] result in
-            switch result {
-            case .success(let image):
-                self?.image = image
-            case .failure(let error):
-                print(error)
+    func fetchImage(from url: String) async {
+        guard let imageUrl = URL(string: url) else { return }
+        do {
+            let imageData = try await networkManager.fetchImage(url: imageUrl)
+            DispatchQueue.main.async { [weak self] in
+                self?.image = imageData
             }
+        } catch {
+            print("failed to fetch image")
+            image = UIImage(systemName: "exclamationmark.circle")
         }
     }
     
