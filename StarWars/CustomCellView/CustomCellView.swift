@@ -9,10 +9,6 @@ import SwiftUI
 struct CustomCellView: View {
     @StateObject var viewModel: CustomCellViewViewModel
     
-    init(character: CharacterImage, networkManager: TestServerApi) {
-        _viewModel = StateObject(wrappedValue: CustomCellViewViewModel(character: character, networkManager: networkManager))
-    }
-    
     var body: some View {
         HStack {
             VStack {

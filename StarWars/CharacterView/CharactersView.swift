@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct CharactersView: View {
-    @ObservedObject var viewModel: CharactersViewViewModel
+    @StateObject private var viewModel = CharactersViewViewModel(networkManager: NetworkManagerAsyncAwait())
     
     var body: some View {
         NavigationStack {
             List(viewModel.characters, id: \.name) { character in
                 CustomNavigationLink {
-                    CustomCellView(character: character, networkManager: NetworkManagerAsyncAwait())
+                    CustomCellView(viewModel: CustomCellViewViewModel(character: character, networkManager: NetworkManagerAsyncAwait()))
                 } destination: {
                     DetailView(viewModel: DetailViewViewModel(
                         characterName: character.name,
@@ -77,5 +77,5 @@ struct CharactersView: View {
 
 
 #Preview {
-    CharactersView(viewModel: CharactersViewViewModel(networkManager: NetworkManagerAsyncAwait()))
+    CharactersView()
 }

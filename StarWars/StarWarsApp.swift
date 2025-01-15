@@ -11,7 +11,7 @@ import SwiftUI
 struct StarWarsApp: App {    
     var body: some Scene {
         WindowGroup {
-            CharactersView(viewModel: CharactersViewViewModel(networkManager: NetworkManagerAsyncAwait()))
+            CharactersView()
         }
     }
 }
