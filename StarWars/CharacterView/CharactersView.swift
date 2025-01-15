@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CharactersView: View {
-    @StateObject var viewModel = CharactersViewViewModel(networkManager: NetworkManager())
+    @StateObject private var viewModel = CharactersViewViewModel(networkManager: NetworkManager())
     
     var body: some View {
         NavigationStack {
@@ -50,5 +50,5 @@ struct CharactersView: View {
 }
 
 #Preview {
-    CharactersView(viewModel: CharactersViewViewModel(networkManager: NetworkManager()))
+    CharactersView()
 }
