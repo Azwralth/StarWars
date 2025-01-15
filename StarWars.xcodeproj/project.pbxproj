@@ -15,6 +15,9 @@
 		763BC3932C133FE1005DF65B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 763BC3922C133FE1005DF65B /* Launch Screen.storyboard */; };
 		764782302D2AB463003122E1 /* SpacingBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647822F2D2AB463003122E1 /* SpacingBackground.swift */; };
 		764782322D2AB47C003122E1 /* ButtonPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764782312D2AB47C003122E1 /* ButtonPage.swift */; };
+		7652B0EC2D357440002EB625 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652B0EB2D357440002EB625 /* Command.swift */; };
+		7652B0F02D3574C5002EB625 /* FetchCharactersCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652B0EF2D3574C5002EB625 /* FetchCharactersCommand.swift */; };
+		7652B0F22D357688002EB625 /* CommandsInvoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652B0F12D357688002EB625 /* CommandsInvoker.swift */; };
 		76605DEE2C1086E400F20A0B /* CustomTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76605DED2C1086E400F20A0B /* CustomTypography.swift */; };
 		766F4FA62C1090F3007687D5 /* SoloistStraight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 766F4FA42C1090F3007687D5 /* SoloistStraight.otf */; };
 		76B19C022C16E69D00DEDB51 /* DefaultImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B19C012C16E69D00DEDB51 /* DefaultImageView.swift */; };
@@ -41,6 +44,9 @@
 		763BC3922C133FE1005DF65B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		7647822F2D2AB463003122E1 /* SpacingBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingBackground.swift; sourceTree = "<group>"; };
 		764782312D2AB47C003122E1 /* ButtonPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPage.swift; sourceTree = "<group>"; };
+		7652B0EB2D357440002EB625 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		7652B0EF2D3574C5002EB625 /* FetchCharactersCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCharactersCommand.swift; sourceTree = "<group>"; };
+		7652B0F12D357688002EB625 /* CommandsInvoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandsInvoker.swift; sourceTree = "<group>"; };
 		76605DED2C1086E400F20A0B /* CustomTypography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTypography.swift; sourceTree = "<group>"; };
 		766F4FA42C1090F3007687D5 /* SoloistStraight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoloistStraight.otf; sourceTree = "<group>"; };
 		76B19C012C16E69D00DEDB51 /* DefaultImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageView.swift; sourceTree = "<group>"; };
@@ -79,6 +85,25 @@
 				764782312D2AB47C003122E1 /* ButtonPage.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7652B0ED2D357470002EB625 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				76BD20CE2C0F409E0078A3C8 /* Link.swift */,
+				76B952A92C1370770026E585 /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		7652B0EE2D357495002EB625 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				7652B0EB2D357440002EB625 /* Command.swift */,
+				7652B0EF2D3574C5002EB625 /* FetchCharactersCommand.swift */,
+				7652B0F12D357688002EB625 /* CommandsInvoker.swift */,
+			);
+			path = Commands;
 			sourceTree = "<group>";
 		};
 		76605DE82C106D5800F20A0B /* CharacterView */ = {
@@ -154,8 +179,8 @@
 		76BD20D12C0F41850078A3C8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				76BD20CE2C0F409E0078A3C8 /* Link.swift */,
-				76B952A92C1370770026E585 /* NetworkManager.swift */,
+				7652B0EE2D357495002EB625 /* Commands */,
+				7652B0ED2D357470002EB625 /* Networking */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -272,8 +297,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				763BC3912C131DE9005DF65B /* CustomCellView.swift in Sources */,
+				7652B0EC2D357440002EB625 /* Command.swift in Sources */,
 				764782302D2AB463003122E1 /* SpacingBackground.swift in Sources */,
 				763BC38F2C130094005DF65B /* TextLocalizationExtension.swift in Sources */,
+				7652B0F02D3574C5002EB625 /* FetchCharactersCommand.swift in Sources */,
 				76D6FDF32C20A24B00753315 /* CustomColor.swift in Sources */,
 				76BD20CB2C0F3F1A0078A3C8 /* CharacterImages.swift in Sources */,
 				76605DEE2C1086E400F20A0B /* CustomTypography.swift in Sources */,
@@ -282,6 +309,7 @@
 				7628F7AC2C0F9438009BBFCE /* DetailView.swift in Sources */,
 				76B19C022C16E69D00DEDB51 /* DefaultImageView.swift in Sources */,
 				76BD20BD2C0F3E060078A3C8 /* StarWarsApp.swift in Sources */,
+				7652B0F22D357688002EB625 /* CommandsInvoker.swift in Sources */,
 				76CDD53D2C10AD8B00AC51DF /* CharacterData.swift in Sources */,
 				76BD20CF2C0F409E0078A3C8 /* Link.swift in Sources */,
 				76F6C5772D29D6A800FFC9E7 /* CustomNavigationLink.swift in Sources */,

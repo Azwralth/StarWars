@@ -11,6 +11,7 @@ final class CharactersViewViewModel: ObservableObject {
     @Published var characters: [CharacterImage] = []
     @Published var currentPage = 1
     
+    private let commandInvoker = CommandInvoker()
     private let networkManager: ServerApi
     private let totalPage = 952
     
@@ -28,22 +29,17 @@ final class CharactersViewViewModel: ObservableObject {
     }
     
     func fetchCharacters(from page: Int = 1) {
-        guard let url = URL(string: "\(Link.characterImageUrl.url.absoluteString)?page=\(page)&limit=10") else {
-            print(NetworkError.invalidURL)
-            return
-        }
-        
-        networkManager.fetch(CharacterImages.self, from: url) { [weak self] result in
-            switch result {
-            case .success(let charactersData):
-                DispatchQueue.main.async {
-                    self?.characters = charactersData.data
-                    self?.currentPage = page
-                }
-            case .failure(let error):
-                print(error)
+        let fetchCommand = FetchCharactersCommand(
+            page: page,
+            networkManager: networkManager) { [weak self] characters in
+                self?.characters = characters
+                self?.currentPage = page
+            } error: { error in
+                print(error.localizedDescription)
             }
-        }
+        
+        commandInvoker.addCommand(fetchCommand)
+        commandInvoker.executeCommands()
     }
     
     func fetchNextPageCharacter() {
