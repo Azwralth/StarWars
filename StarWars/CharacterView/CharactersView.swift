@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CharactersView: View {
-    @ObservedObject var viewModel: CharactersViewViewModel
+    @StateObject private var viewModel = CharactersViewViewModel(networkManager: NetworkManager())
     
     var body: some View {
         NavigationStack {
@@ -26,15 +26,13 @@ struct CharactersView: View {
                 .background {
                     SpaceBackgroundView()
                 }
+                .toolbarBackground(CustomColor.darkerGray, for: .navigationBar)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Text("charactersNavigationTitle")
                             .font(CustomTypography.custom(size: 30))
                             .foregroundStyle(CustomColor.starWarsYellow)
                     }
-                }
-                .toolbarBackground(CustomColor.darkerGray, for: .navigationBar)
-                .toolbar {
                     ToolbarItem(placement: .bottomBar) {
                         HStack {
                             ButtonPage(pointingDirection: .left, isDisabled: viewModel.isFirstPage(), action: viewModel.fetchPrevPageCharacter)
@@ -50,5 +48,5 @@ struct CharactersView: View {
 }
 
 #Preview {
-    CharactersView(viewModel: CharactersViewViewModel(networkManager: NetworkManager()))
+    CharactersView()
 }
